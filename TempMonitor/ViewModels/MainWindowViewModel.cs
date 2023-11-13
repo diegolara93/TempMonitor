@@ -13,6 +13,12 @@ public class MainWindowViewModel : ViewModelBase
     public string Cpu => "CPU is: " + _comp.ComputerCpu();
     public string Gpu => "GPU is: " + _comp.ComputerGpu();
     public string Cooler => "CPU Cooler is: " + _comp.Cooler();
+    public double GpuTempDouble;
+    public double GPUTempDouble
+    {
+        get => GpuTempDouble;
+        set => this.RaiseAndSetIfChanged(ref GpuTempDouble, value);
+    }
     public string? GpuTemp;
     public string? CPUUsage;
     public string? GPUTemp
@@ -20,6 +26,7 @@ public class MainWindowViewModel : ViewModelBase
         get => GpuTemp;
         set => this.RaiseAndSetIfChanged(ref GpuTemp, value);
     }
+    
     public string? CpuUsage
     {
         get => CPUUsage;
@@ -32,6 +39,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         GpuTemp = "GPU Temp: " + _comp.GpuTemp();
         CpuUsage = "CPU Usage: " + _comp.CpuUsage();
+        GPUTempDouble = _comp.GpuTempDouble() ?? 0;
         _updateTimer = new Timer(1000); // Update every second (1000 ms)
         _updateTimer.Elapsed += OnTimedEvent!;
         _updateTimer.AutoReset = true;
@@ -43,6 +51,6 @@ public class MainWindowViewModel : ViewModelBase
         _comp.UpdateHardware(); // Update the hardware information
         GPUTemp = "GPU Temp: " + _comp.GpuTemp();
         CpuUsage = "CPU Usage: " + _comp.CpuUsage();
-        
+        GPUTempDouble = _comp.GpuTempDouble() ?? 0;
     }
 }

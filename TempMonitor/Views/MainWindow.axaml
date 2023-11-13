@@ -20,5 +20,6 @@
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding GPUTemp}"></TextBlock>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CpuUsage}"></TextBlock>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cooler}"></TextBlock>
+        <ProgressBar ProgressTextFormat=" {0} degrees" ShowProgressText="True" Value="{Binding GPUTempDouble}"></ProgressBar>
     </StackPanel>
 </Window>

@@ -47,7 +47,17 @@ public string? ComputerCpu() // Computer CPU
     {
         return _computer.Hardware[3].Sensors[0].Value?.ToString();
     }
+    
+    public double? GpuTempDouble()
+    {
+        return _computer.Hardware[3].Sensors[0].Value;
+    }
 
+    public double? CpuUsageDouble()
+    {
+        return _computer.Hardware[1].Sensors[1].Value;
+    }
+    
     public string? CpuUsage()
     {
         return _computer.Hardware[1].Sensors[1].Value?.ToString();

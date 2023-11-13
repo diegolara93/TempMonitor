@@ -1,7 +1,5 @@
-using System;
+
 using Avalonia.Controls;
-using Avalonia.Interactivity;
-using LibreHardwareMonitor.Hardware;
 using TempMonitor.Models;
 
 namespace TempMonitor.Views;
