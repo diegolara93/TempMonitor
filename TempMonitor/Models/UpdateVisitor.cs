@@ -1,5 +1,4 @@
-﻿using System;
-using LibreHardwareMonitor.Hardware;
+﻿using LibreHardwareMonitor.Hardware;
 
 namespace TempMonitor.Models;
 

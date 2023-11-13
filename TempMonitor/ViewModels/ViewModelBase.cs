@@ -2,6 +2,6 @@
 
 namespace TempMonitor.ViewModels;
 
-public class ViewModelBase : ReactiveObject
+public partial class ViewModelBase : ReactiveObject
 {
 }

@@ -17,6 +17,8 @@
     <StackPanel>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cpu}"></TextBlock>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Gpu}"></TextBlock>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding GpuTemp}"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding GPUTemp}"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CpuUsage}"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cooler}"></TextBlock>
     </StackPanel>
 </Window>

@@ -7,41 +7,54 @@ namespace TempMonitor.Models;
  * 1 is CPU
  * 2 is RAM
  * 3 is GPU
- * 4 is HDD
- * 5 is SSD
- * 6 is NIC
- * 7 is Controller
- * 8 is Optical Drive
+ * 4 is AIO
+ * 5 is Ethernet
+ * 6 is WiFi
  */
 public class Monitor
 {
-    private readonly Computer _computer = new Computer // Initialize the computer object with all hardware enabled MIGHT NEED ADMIN PERMS FOR CERTAIN HARDWARE
+    private readonly Computer _computer;
+    public Monitor()
     {
-        IsCpuEnabled = true,
-        IsGpuEnabled = true,
-        IsMemoryEnabled = true,
-        IsMotherboardEnabled = true,
-        IsControllerEnabled = true,
-        IsNetworkEnabled = true,
-        IsStorageEnabled = true
-    };
-    public string? ComputerCpu() // Computer CPU
+
+           _computer = new Computer // Initialize the computer object with all hardware enabled MIGHT NEED ADMIN PERMS FOR CERTAIN HARDWARE
+            {
+                IsCpuEnabled = true,
+                IsGpuEnabled = true,
+                IsMemoryEnabled = true,
+                IsMotherboardEnabled = true,
+                IsControllerEnabled = true,
+                IsNetworkEnabled = true,
+                IsStorageEnabled = true
+            };
+    _computer.Open();
+}
+    public void UpdateHardware()
     {
-        _computer.Open();
-        _computer.Accept(new UpdateVisitor());
+        _computer.Accept(new UpdateVisitor()); // Update hardware status
+    }
+
+public string? ComputerCpu() // Computer CPU
+    {
         return _computer.Hardware[1].Name;
     }
 
     public string? ComputerGpu() // Computer GPU
     {
-        _computer.Open();
-        _computer.Accept(new UpdateVisitor());
         return _computer.Hardware[3].Name;
     }
     public string? GpuTemp()
     {
-        _computer.Open();
-        _computer.Accept(new UpdateVisitor());
-        return _computer.Hardware[3].Sensors[0].Value.ToString();
+        return _computer.Hardware[3].Sensors[0].Value?.ToString();
+    }
+
+    public string? CpuUsage()
+    {
+        return _computer.Hardware[1].Sensors[1].Value?.ToString();
+    }
+
+    public string? Cooler()
+    {
+        return _computer.Hardware[4].Name;
     }
 }
