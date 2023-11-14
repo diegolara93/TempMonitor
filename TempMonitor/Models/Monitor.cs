@@ -57,7 +57,11 @@ public string? ComputerCpu() // Computer CPU
     {
         return _computer.Hardware[1].Sensors[1].Value;
     }
-    
+
+    public double? CoolerTemp()
+    {
+        return _computer.Hardware[4].Sensors[0].Value;
+    }
     public string? CpuUsage()
     {
         return _computer.Hardware[1].Sensors[1].Value?.ToString();
