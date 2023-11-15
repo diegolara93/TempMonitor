@@ -13,25 +13,36 @@
             <Setter Property="Template">
                 <ControlTemplate>
                     <Border Name="PART_Track" Background="#FFD3D3D3" CornerRadius="5" Height="12" Width="400">
-                        <Border Name="PART_Indicator" Background="Red" CornerRadius="5" 
+                        <Border Name="PART_Indicator" Background="#8a833b" CornerRadius="5" 
                                 HorizontalAlignment="Left"/>
                     </Border>
                 </ControlTemplate>
             </Setter>
         </Style>
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            </Style>
     </Window.Styles>
+    
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+
     <StackPanel>
+        <StackPanel.Background>
+            <LinearGradientBrush StartPoint="100%,100%" EndPoint="0%,0%">
+                <GradientStop Color="#4e0861" Offset="0"/>
+                <GradientStop Color="#1e1d1f" Offset="0.9"/>
+            </LinearGradientBrush>
+        </StackPanel.Background>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cpu}"></TextBlock>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Gpu}"></TextBlock>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding GPUTemp}"></TextBlock>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding CpuUsage}"></TextBlock>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cooler}"></TextBlock>
         <ProgressBar Margin="10, 0, 0, 0" HorizontalAlignment="Left" ProgressTextFormat=" {0} degrees" ShowProgressText="True" Value="{Binding GPUTempDouble}"></ProgressBar>
-        <ProgressBar Margin="10, 80, 0, 0" HorizontalAlignment="Left" ProgressTextFormat=" {0} degrees" ShowProgressText="True" Value="{Binding GPUTempDouble}"></ProgressBar>
+        <ProgressBar Name="Bar2" Margin="10, 80, 0, 0" HorizontalAlignment="Left" ProgressTextFormat=" {0} degrees" ShowProgressText="True" Value="{Binding GPUTempDouble}"></ProgressBar>
     </StackPanel>
 </Window>
