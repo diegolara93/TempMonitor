@@ -17,7 +17,7 @@ public class Monitor
     public Monitor()
     {
 
-           _computer = new Computer // Initialize the computer object with all hardware enabled MIGHT NEED ADMIN PERMS FOR CERTAIN HARDWARE
+           _computer = new Computer // Initialize the computer object with all hardware enabled
             {
                 IsCpuEnabled = true,
                 IsGpuEnabled = true,
@@ -34,7 +34,7 @@ public class Monitor
         _computer.Accept(new UpdateVisitor()); // Update hardware status
     }
 
-public string? ComputerCpu() // Computer CPU
+    public string? ComputerCpu() // Computer CPU
     {
         return _computer.Hardware[1].Name;
     }
@@ -43,32 +43,30 @@ public string? ComputerCpu() // Computer CPU
     {
         return _computer.Hardware[3].Name;
     }
-    public string? GpuTemp()
-    {
-        return _computer.Hardware[3].Sensors[0].Value?.ToString();
-    }
-    
-    public double? GpuTempDouble()
+    public double? GpuTemp()
     {
         return _computer.Hardware[3].Sensors[0].Value;
     }
-
-    public double? CpuUsageDouble()
-    {
-        return _computer.Hardware[1].Sensors[1].Value;
-    }
-
-    public double? CoolerTemp()
+    public double? LiquidTemp()
     {
         return _computer.Hardware[4].Sensors[0].Value;
     }
-    public string? CpuUsage()
+    public double? CpuUsage()
     {
-        return _computer.Hardware[1].Sensors[1].Value?.ToString();
+        return _computer.Hardware[1].Sensors[1].Value;
     }
 
     public string? Cooler()
     {
         return _computer.Hardware[4].Name;
+    }
+
+    public double? RAMUsage()
+    {
+        return _computer.Hardware[2].Sensors[0].Value;
+    }
+    public string? Motherboard()
+    {
+        return _computer.Hardware[0].Name;
     }
 }
