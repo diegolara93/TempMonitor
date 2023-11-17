@@ -43,29 +43,29 @@ public class Monitor
     {
         return _computer.Hardware[3].Name;
     }
-    public double? GpuTemp()
+    public double? GpuTemp() // GPU Temp
     {
         return _computer.Hardware[3].Sensors[0].Value;
     }
-    public double? LiquidTemp()
+    public double? LiquidTemp() // AIO Temp 
     {
         return _computer.Hardware[4].Sensors[0].Value;
     }
-    public double? CpuUsage()
+    public double? CpuUsage() // CPU Usage
     {
         return _computer.Hardware[1].Sensors[1].Value;
     }
 
-    public string? Cooler()
+    public string? Cooler() // CPU Cooler
     {
         return _computer.Hardware[4].Name;
     }
 
-    public double? RAMUsage()
+    public double? RAMUsage() // RAM Usage
     {
         return _computer.Hardware[2].Sensors[0].Value;
     }
-    public string? Motherboard()
+    public string? Motherboard() // Motherboard
     {
         return _computer.Hardware[0].Name;
     }
