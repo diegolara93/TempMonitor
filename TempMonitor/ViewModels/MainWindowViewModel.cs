@@ -35,6 +35,12 @@ public class MainWindowViewModel : ViewModelBase
         get => CPUUsage;
         set => this.RaiseAndSetIfChanged(ref CPUUsage, value);
     }
+    public double CPUUsageDouble; // Double for CPU Usage
+    public double CpuUsageDouble // Double for CPU Usage
+    {
+        get => CPUUsageDouble;
+        set => this.RaiseAndSetIfChanged(ref CPUUsageDouble, value);
+    }
     /*
      * If ViewModel is changed MAKE SURE TO DISABLE TIMER TO AVOID MEMORY LEAKS
      */
@@ -43,6 +49,7 @@ public class MainWindowViewModel : ViewModelBase
         GpuTemp = "GPU Temp: " + _comp.GpuTemp(); 
         CpuUsage = "CPU Usage: " + Math.Round((double)_comp.CpuUsage()!, 2);
         GPUTempDouble = _comp.GpuTemp() ?? 0;
+        CpuUsageDouble = _comp.CpuUsage() ?? 0;
         _updateTimer = new Timer(1000); // Update every second (1000 ms)
         _updateTimer.Elapsed += OnTimedEvent!; // Call OnTimedEvent every second
         _updateTimer.AutoReset = true; // Reset the timer
@@ -55,5 +62,6 @@ public class MainWindowViewModel : ViewModelBase
         GpuTemp = "GPU Temp: " + _comp.GpuTemp();
         CpuUsage = "CPU Usage: " + Math.Round((double)_comp.CpuUsage()!, 2);
         GPUTempDouble = _comp.GpuTemp() ?? 0;
+        CpuUsageDouble = _comp.CpuUsage() ?? 0;
     }
 }

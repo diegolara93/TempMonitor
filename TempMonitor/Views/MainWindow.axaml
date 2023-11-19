@@ -37,12 +37,12 @@
                 <GradientStop Color="#1e1d1f" Offset="0.9"/>
             </LinearGradientBrush>
         </StackPanel.Background>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Cpu}"></TextBlock>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Gpu}"></TextBlock>
+        <TextBlock Margin="290, 0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Cpu}"></TextBlock>
+        <TextBlock Margin="290, 0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Gpu}"></TextBlock>
         <TextBlock Margin="315,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text= "{Binding GpuTemp}"></TextBlock>
         <ProgressBar Margin="10, 5, 0, 50" HorizontalAlignment="Left" ProgressTextFormat=" {0} degrees" ShowProgressText="True" Value="{Binding GPUTempDouble}"></ProgressBar>
         <TextBlock Margin="300,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding CpuUsage}"></TextBlock>
-        <ProgressBar Margin="10, 5, 0, 0" HorizontalAlignment="Left" ProgressTextFormat=" {0} degrees" ShowProgressText="True" Value="{Binding GPUTempDouble}"></ProgressBar>
+        <ProgressBar Margin="10, 5, 0, 0" HorizontalAlignment="Left" ProgressTextFormat=" {0} degrees" ShowProgressText="True" Value="{Binding CpuUsageDouble}"></ProgressBar>
         <TextBlock Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="{Binding Cooler}"></TextBlock>
         <TextBlock Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="{Binding Ram}"></TextBlock>
         <TextBlock Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="{Binding AIOTemp}"></TextBlock>
